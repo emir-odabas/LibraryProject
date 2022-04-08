@@ -8,11 +8,15 @@
     <PackageReference Include="Autofac" Version="5.0.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="5.0.0" />
     <PackageReference Include="Castle.Core" Version="4.4.1" />
+    <PackageReference Include="FluentValidation" Version="10.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.11" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Aspects\Autofac\Validation\" />
+    <Folder Include="CrossCuttingConcerns\Validation\" />
+    <Folder Include="Utilities\Business\" />
+    <Folder Include="Utilities\IoC\" />
     <Folder Include="Utilities\İnterceptors\" />
   </ItemGroup>
 

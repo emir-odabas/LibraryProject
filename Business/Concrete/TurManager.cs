@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -26,21 +27,22 @@ namespace Business.Concrete
 
         public IResult Add(Tur tur)
         {
-            return new SuccessResult("Kitap türü eklendi");
+            _turDal.Add(tur);
+            return new SuccessResult(Messages.TypeAdded);
         }
 
         public IResult Update(Tur tur)
         {
             _turDal.Update(tur);
 
-            return new SuccessResult("Kitap türü güncellendi");
+            return new SuccessResult(Messages.TypeUpdated);
         }
 
         public IResult Delete(Tur tur)
         {
             _turDal.Delete(tur);
 
-            return new SuccessResult("");
+            return new SuccessResult(Messages.TypeDeleted);
         }
     }
 }

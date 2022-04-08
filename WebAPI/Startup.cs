@@ -11,8 +11,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Microsoft.AspNetCore.Identity;
 
 namespace WebAPI
 {
@@ -33,16 +36,39 @@ namespace WebAPI
 
             services.AddControllers();
 
+            services.AddSingleton<IIslemService, IslemManager>();
             services.AddSingleton<IIslemDal, EfIslemDal>();
+
+            services.AddSingleton<IOgrenciService, OgrenciManager>();
             services.AddSingleton<IOgrenciDal, EfOgrenciDal>();
+
+            services.AddSingleton<ITurService, TurManager>();
             services.AddSingleton<ITurDal, EfTurDal>();
+
+            services.AddSingleton<IKitapService, KitapManager>();
             services.AddSingleton<IKitapDal, EfKitapDal>();
+
+            services.AddSingleton<IYazarService, YazarManager>();
             services.AddSingleton<IYazarDal, EfYazarDal>();
 
 
+            var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidIssuer = tokenOptions.Issuer,
+                        ValidAudience = tokenOptions.Audience,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+                    };
+                });
 
-            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });

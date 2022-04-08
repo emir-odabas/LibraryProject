@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -28,21 +29,21 @@ namespace Business.Concrete
         {
             _yazarDal.Add(yazar);
 
-            return new SuccessResult("Yazar eklendi");
+            return new SuccessResult(Messages.AuthorAdded);
         }
 
         public IResult Update(Yazar yazar)
         {
             _yazarDal.Update(yazar);
 
-            return new SuccessResult("Yazar güncellendi");
+            return new SuccessResult(Messages.AuthorUpdated);
         }
 
         public IResult Delete(Yazar yazar)
         {
             _yazarDal.Delete(yazar);
 
-            return new SuccessResult("Yazar Silindi");
+            return new SuccessResult(Messages.AuthorDeleted);
         }
     }
 }

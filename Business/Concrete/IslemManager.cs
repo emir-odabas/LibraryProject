@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.Abstract.DTOs;
 using Entities.Concrete;
 
 namespace Business.Concrete
@@ -14,6 +14,7 @@ namespace Business.Concrete
     public class IslemManager : IIslemService
     {
          IIslemDal _islemDal;
+
 
         public IslemManager(IIslemDal islemDal)
         {
@@ -24,14 +25,14 @@ namespace Business.Concrete
         {
             _islemDal.Add(islem);
 
-            return new SuccessResult("İşlem eklendi");
+            return new SuccessResult(Messages.ProcessAdded);
         }
 
         public IResult Delete(Islem islem)
         {
             _islemDal.Delete(islem);
 
-            return new SuccessResult("İslem silindi");
+            return new SuccessResult(Messages.ProcessDeleted);
 
         }
 
@@ -40,16 +41,12 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Islem>>(_islemDal.GetAll());
         }
 
-        public List<IslemDetailDto> GetIslemDetails()
-        {
-            return new List<IslemDetailDto>(_islemDal.GetIslemDetails());
-        }
 
         public IResult Update(Islem islem)
         {
             _islemDal.Update(islem);
 
-            return new SuccessResult("İşlem güncellendi");
+            return new SuccessResult(Messages.ProcessUpdated);
         }
     }
 }
