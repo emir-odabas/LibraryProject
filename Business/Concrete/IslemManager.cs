@@ -21,14 +21,14 @@ namespace Business.Concrete
             _islemDal = islemDal;
         }
 
-        public IResult Add(Islem islem)
+        public IResult Add(Process islem)
         {
             _islemDal.Add(islem);
 
             return new SuccessResult(Messages.ProcessAdded);
         }
 
-        public IResult Delete(Islem islem)
+        public IResult Delete(Process islem)
         {
             _islemDal.Delete(islem);
 
@@ -36,13 +36,13 @@ namespace Business.Concrete
 
         }
 
-        public IDataResult<List<Islem>> GetAll()
+        public IDataResult<List<Process>> GetAll()
         {
-            return new SuccessDataResult<List<Islem>>(_islemDal.GetAll());
+            return new SuccessDataResult<List<Process>>(_islemDal.GetAll());
         }
 
 
-        public IResult Update(Islem islem)
+        public IResult Update(Process islem)
         {
             _islemDal.Update(islem);
 

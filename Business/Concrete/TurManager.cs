@@ -20,25 +20,25 @@ namespace Business.Concrete
             _turDal = turDal;
         }
 
-        public IDataResult<List<Tur>> GetAll()
+        public IDataResult<List<Entities.Concrete.Type>> GetAll()
         {
-            return new SuccessDataResult<List<Tur>>(_turDal.GetAll());
+            return new SuccessDataResult<List<Entities.Concrete.Type>>(_turDal.GetAll());
         }
 
-        public IResult Add(Tur tur)
+        public IResult Add(Entities.Concrete.Type tur)
         {
             _turDal.Add(tur);
             return new SuccessResult(Messages.TypeAdded);
         }
 
-        public IResult Update(Tur tur)
+        public IResult Update(Entities.Concrete.Type tur)
         {
             _turDal.Update(tur);
 
             return new SuccessResult(Messages.TypeUpdated);
         }
 
-        public IResult Delete(Tur tur)
+        public IResult Delete(Entities.Concrete.Type tur)
         {
             _turDal.Delete(tur);
 

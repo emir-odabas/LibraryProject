@@ -35,7 +35,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Ogrenci ogrenci)
+        public IActionResult Add(Student ogrenci)
         {
             var result = _ogrenciService.Add(ogrenci);
             if (result.Success)
@@ -47,7 +47,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut("update")]
-        public IActionResult Update(Ogrenci ogrenci)
+        public IActionResult Update(Student ogrenci)
         {
             var result = _ogrenciService.Update(ogrenci);
             if (result.Success)
@@ -59,7 +59,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Ogrenci ogrenci)
+        public IActionResult Delete(Student ogrenci)
         {
             var result = _ogrenciService.Delete(ogrenci);
 

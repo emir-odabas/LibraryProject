@@ -8,7 +8,7 @@ using FluentValidation;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class OgrenciValidator :AbstractValidator<Ogrenci>
+    public class OgrenciValidator :AbstractValidator<Student>
     {
         public OgrenciValidator()
         {

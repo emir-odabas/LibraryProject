@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Business.Abstract;
+using Entities.Abstract.DTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ namespace WebAPI.Controllers
     {
         private IAuthService _authService;
 
-        public AuthController(IAuthService authService)
+        public AuthsController(IAuthService authService)
         {
             _authService = authService;
         }

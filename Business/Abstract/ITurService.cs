@@ -10,12 +10,12 @@ namespace Business.Abstract
 {
     public interface ITurService
     {
-        IDataResult<List<Tur>> GetAll();
+        IDataResult<List<Entities.Concrete.Type>> GetAll();
 
-        IResult Add(Tur tur);
+        IResult Add(Entities.Concrete.Type tur);
 
-        IResult Update(Tur tur);
+        IResult Update(Entities.Concrete.Type tur);
 
-        IResult Delete(Tur tur);
+        IResult Delete(Entities.Concrete.Type tur);
     }
 }

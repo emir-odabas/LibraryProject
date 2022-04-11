@@ -10,12 +10,12 @@ namespace Business.Abstract
 {
     public interface IKitapService
     {
-        IDataResult<List<Kitap>> GetAll();
+        IDataResult<List<Book>> GetAll();
 
-        IResult Add(Kitap kitap);
+        IResult Add(Book kitap);
 
-        IResult Update(Kitap kitap);
+        IResult Update(Book kitap);
 
-        IResult Delete(Kitap kitap);
+        IResult Delete(Book kitap);
     }
 }

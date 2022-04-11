@@ -24,24 +24,24 @@ namespace Business.Concrete
         }
 
 
-        public IDataResult<List<Ogrenci>> GetAll()
+        public IDataResult<List<Student>> GetAll()
         {
-            return new SuccessDataResult<List<Ogrenci>>(_ogrenciDal.GetAll());
+            return new SuccessDataResult<List<Student>>(_ogrenciDal.GetAll());
         }
 
-        public IResult Add(Ogrenci ogrenci)
+        public IResult Add(Student ogrenci)
         {
             _ogrenciDal.Add(ogrenci);
             return new SuccessResult(Messages.StudentAdded);
         }
 
-        public IResult Update(Ogrenci ogrenci)
+        public IResult Update(Student ogrenci)
         {
             _ogrenciDal.Update(ogrenci);
             return new SuccessResult(Messages.StudentUpdated);
         }
 
-        public IResult Delete(Ogrenci ogrenci)
+        public IResult Delete(Student ogrenci)
         {
             _ogrenciDal.Delete(ogrenci);
             return new SuccessResult(Messages.StudentDeleted);

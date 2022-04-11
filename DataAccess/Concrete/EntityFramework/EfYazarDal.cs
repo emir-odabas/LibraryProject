@@ -9,7 +9,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfYazarDal : EfEntityRepositoryBase<Yazar, LibraryContext>, IYazarDal
+    public class EfYazarDal : EfEntityRepositoryBase<Writer, LibraryContext>, IYazarDal
     {
 
     }

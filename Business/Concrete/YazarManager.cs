@@ -20,26 +20,26 @@ namespace Business.Concrete
             _yazarDal = yazarDal;
         }
 
-        public IDataResult<List<Yazar>> GetAll()
+        public IDataResult<List<Writer>> GetAll()
         {
-            return new SuccessDataResult<List<Yazar>>(_yazarDal.GetAll());
+            return new SuccessDataResult<List<Writer>>(_yazarDal.GetAll());
         }
 
-        public IResult Add(Yazar yazar)
+        public IResult Add(Writer yazar)
         {
             _yazarDal.Add(yazar);
 
             return new SuccessResult(Messages.AuthorAdded);
         }
 
-        public IResult Update(Yazar yazar)
+        public IResult Update(Writer yazar)
         {
             _yazarDal.Update(yazar);
 
             return new SuccessResult(Messages.AuthorUpdated);
         }
 
-        public IResult Delete(Yazar yazar)
+        public IResult Delete(Writer yazar)
         {
             _yazarDal.Delete(yazar);
 

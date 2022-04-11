@@ -9,7 +9,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfOgrenciDal : EfEntityRepositoryBase<Ogrenci, LibraryContext>, IOgrenciDal
+    public class EfOgrenciDal : EfEntityRepositoryBase<Student, LibraryContext>, IOgrenciDal
     {
 
     }

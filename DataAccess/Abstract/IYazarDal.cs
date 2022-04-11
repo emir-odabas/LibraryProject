@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IYazarDal : IEntityRepository<Yazar>
+    public interface IYazarDal : IEntityRepository<Writer>
     {
 
     }

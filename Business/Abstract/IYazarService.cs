@@ -10,12 +10,12 @@ namespace Business.Abstract
 {
     public interface IYazarService
     {
-        IDataResult<List<Yazar>> GetAll();
+        IDataResult<List<Writer>> GetAll();
 
-        IResult Add(Yazar yazar);
+        IResult Add(Writer yazar);
 
-        IResult Update(Yazar yazar);
+        IResult Update(Writer yazar);
 
-        IResult Delete(Yazar yazar);
+        IResult Delete(Writer yazar);
     }
 }

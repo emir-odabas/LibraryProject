@@ -34,7 +34,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Islem islem)
+        public IActionResult Add(Process islem)
         {
             var result = _islemService.Add(islem);
 
@@ -49,7 +49,7 @@ namespace WebAPI.Controllers
 
 
         [HttpPut("update")]
-        public IActionResult Update(Islem islem)
+        public IActionResult Update(Process islem)
         {
             var result = _islemService.Update(islem);
 
@@ -64,7 +64,7 @@ namespace WebAPI.Controllers
 
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Islem islem)
+        public IActionResult Delete(Process islem)
         {
             var result = _islemService.Delete(islem);
 

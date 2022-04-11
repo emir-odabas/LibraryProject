@@ -36,7 +36,7 @@ namespace WebAPI.Controllers
 
         [HttpPost("add")]
 
-        public IActionResult Add(Kitap kitap)
+        public IActionResult Add(Book kitap)
         {
             var result = _kitapService.Add(kitap);
 
@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
 
         [HttpPut("update")]
 
-        public IActionResult Update(Kitap kitap)
+        public IActionResult Update(Book kitap)
         {
             var result = _kitapService.Update(kitap);
 
@@ -65,7 +65,7 @@ namespace WebAPI.Controllers
 
         [HttpDelete("delete")]
 
-        public IActionResult Delete(Kitap kitap)
+        public IActionResult Delete(Book kitap)
         {
             var result = _kitapService.Update(kitap);
 

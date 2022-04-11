@@ -21,26 +21,26 @@ namespace Business.Concrete
         }
 
         
-        public IDataResult<List<Kitap>> GetAll()
+        public IDataResult<List<Book>> GetAll()
         {
-            return new SuccessDataResult<List<Kitap>>(_kitapDal.GetAll());
+            return new SuccessDataResult<List<Book>>(_kitapDal.GetAll());
         }
 
-        public IResult Add(Kitap kitap)
+        public IResult Add(Book kitap)
         {
             _kitapDal.Add(kitap);
 
             return new SuccessResult(Messages.BookAdded);
         }
 
-        public IResult Update(Kitap kitap)
+        public IResult Update(Book kitap)
         {
             _kitapDal.Update(kitap);
 
             return new SuccessResult(Messages.BookUpdated);
         }
 
-        public IResult Delete(Kitap kitap)
+        public IResult Delete(Book kitap)
         {
             _kitapDal.Delete(kitap);
 

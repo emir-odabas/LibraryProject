@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfIslemDal :EfEntityRepositoryBase<Islem,LibraryContext>,IIslemDal
+    public class EfIslemDal :EfEntityRepositoryBase<Process,LibraryContext>,IIslemDal
     {
         
     }

@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Castle.Components.DictionaryAdapter;
+using Core.Entities.Abstract;
 
 namespace Entities.Concrete
 { 
-    public class Ogrenci : IEntity
+    public class Student : IEntity
     {
         [System.ComponentModel.DataAnnotations.Key]
         public int OgrId { get; set; }

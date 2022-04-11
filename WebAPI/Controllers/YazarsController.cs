@@ -36,7 +36,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Yazar yazar)
+        public IActionResult Add(Writer yazar)
         {
             var result = _yazarService.Add(yazar);
 
@@ -49,7 +49,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut("update")]
-        public IActionResult Update(Yazar yazar)
+        public IActionResult Update(Writer yazar)
         {
             var result = _yazarService.Update(yazar);
             if (result.Success)
@@ -61,7 +61,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Yazar yazar)
+        public IActionResult Delete(Writer yazar)
         {
             var result = _yazarService.Update(yazar);
 

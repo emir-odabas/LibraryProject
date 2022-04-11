@@ -10,12 +10,12 @@ namespace Business.Abstract
 {
     public interface IIslemService
     {
-        IDataResult<List<Islem>> GetAll();
+        IDataResult<List<Process>> GetAll();
 
-        IResult Add(Islem islem);
+        IResult Add(Process islem);
 
-        IResult Update(Islem islem);
+        IResult Update(Process islem);
 
-        IResult Delete(Islem islem);
+        IResult Delete(Process islem);
     }
 }

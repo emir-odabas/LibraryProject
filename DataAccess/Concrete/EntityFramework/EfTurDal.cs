@@ -9,7 +9,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfTurDal : EfEntityRepositoryBase<Tur, LibraryContext>, ITurDal
+    public class EfTurDal : EfEntityRepositoryBase<Entities.Concrete.Type, LibraryContext>, ITurDal
     {
 
     }

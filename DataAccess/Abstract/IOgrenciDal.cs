@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IOgrenciDal : IEntityRepository<Ogrenci>
+    public interface IOgrenciDal : IEntityRepository<Student>
     {
         
     }

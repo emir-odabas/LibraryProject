@@ -11,7 +11,7 @@ namespace Business.Abstract
     {
         public interface IUserService
         {
-            List<OperationClaims> GetClaims(User user);
+            List<OperationClaim> GetClaims(User user);
 
             void Add(User user);
 

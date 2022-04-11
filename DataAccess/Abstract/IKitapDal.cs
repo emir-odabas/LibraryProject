@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IKitapDal : IEntityRepository<Kitap>
+    public interface IKitapDal : IEntityRepository<Book>
     {
 
     }

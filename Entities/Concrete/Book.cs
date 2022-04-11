@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Entities.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Kitap : IEntity
+    public class Book : IEntity
     {
         public int KitapId { get; set; }
 

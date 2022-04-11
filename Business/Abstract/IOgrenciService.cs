@@ -10,12 +10,12 @@ namespace Business.Abstract
 {
     public interface IOgrenciService
     {
-        IDataResult<List<Ogrenci>> GetAll();
+        IDataResult<List<Student>> GetAll();
 
-        IResult Add(Ogrenci ogrenci);
+        IResult Add(Student ogrenci);
 
-        IResult Update(Ogrenci ogrenci);
+        IResult Update(Student ogrenci);
 
-        IResult Delete(Ogrenci ogrenci);
+        IResult Delete(Student ogrenci);
     }
 }

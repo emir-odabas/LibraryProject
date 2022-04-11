@@ -35,7 +35,7 @@ namespace WebAPI.Controllers
 
 
         [HttpPost("add")]
-        public IActionResult Add(Tur tur)
+        public IActionResult Add(Entities.Concrete.Type tur)
         {
             var result = _turService.Add(tur);
 
@@ -48,7 +48,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut("update")]
-        public IActionResult Update(Tur tur)
+        public IActionResult Update(Entities.Concrete.Type tur)
         {
             var result = _turService.Update(tur);
 
@@ -61,7 +61,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Tur tur)
+        public IActionResult Delete(Entities.Concrete.Type tur)
         {
             var result = _turService.Delete(tur);
 
