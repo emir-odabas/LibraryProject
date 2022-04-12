@@ -10,6 +10,7 @@ namespace Entities.Concrete
 {
     public class Process : IEntity
     {
+        [System.ComponentModel.DataAnnotations.Key]
         public int IslemId { get; set; }
 
         public int OgrId { get; set; }

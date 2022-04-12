@@ -8,14 +8,14 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    public interface ITurService
+    public interface ITypeService
     {
         IDataResult<List<Entities.Concrete.Type>> GetAll();
 
-        IResult Add(Entities.Concrete.Type tur);
+        IResult Add(Entities.Concrete.Type type);
 
-        IResult Update(Entities.Concrete.Type tur);
+        IResult Update(Entities.Concrete.Type type);
 
-        IResult Delete(Entities.Concrete.Type tur);
+        IResult Delete(Entities.Concrete.Type type);
     }
 }

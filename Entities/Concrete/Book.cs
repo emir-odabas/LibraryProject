@@ -10,6 +10,8 @@ namespace Entities.Concrete
 {
     public class Book : IEntity
     {
+
+        [System.ComponentModel.DataAnnotations.Key]
         public int KitapId { get; set; }
 
         public string Ad { get; set; }

@@ -10,6 +10,7 @@ namespace Entities.Concrete
 {
     public class Writer :IEntity
     {
+        [System.ComponentModel.DataAnnotations.Key]
         public int YazarId { get; set; }
 
         public string Ad { get; set; }

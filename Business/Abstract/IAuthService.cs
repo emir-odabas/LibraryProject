@@ -16,7 +16,7 @@ namespace Business.Abstract
 
         IDataResult<User> Login(UserForLoginDto userForLoginDto);
 
-        IResult UserExists(string email); //Kullanıcının daha önceden bir kayıtı varmı
+        IResult UserExists(string email); //Kullanıcının daha önceden bir kayıtı varmı kontrol edilecek
 
         IDataResult<AccessToken> CreateAccessToken(User user);
     }

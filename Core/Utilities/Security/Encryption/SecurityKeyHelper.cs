@@ -14,4 +14,4 @@ namespace Core.Utilities.Security.Encryption
             return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
         }
     }
-}
+}//Her şeyi byte[] formatında vermemiz gerektiği için burayı oluşturduk ve simetrik güvenlik anahtarı kullandık

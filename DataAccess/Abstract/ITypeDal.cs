@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface ITurDal : IEntityRepository<Entities.Concrete.Type>
+    public interface ITypeDal : IEntityRepository<Entities.Concrete.Type>
     {
 
     }

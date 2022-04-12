@@ -11,26 +11,26 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class IslemManager : IIslemService
+    public class ProcessManager : IProcessService
     {
-         IIslemDal _islemDal;
+         IProcessDal _processDal;
 
 
-        public IslemManager(IIslemDal islemDal)
+        public ProcessManager(IProcessDal processDal)
         {
-            _islemDal = islemDal;
+            _processDal = processDal;
         }
 
-        public IResult Add(Process islem)
+        public IResult Add(Process process)
         {
-            _islemDal.Add(islem);
+            _processDal.Add(process);
 
             return new SuccessResult(Messages.ProcessAdded);
         }
 
-        public IResult Delete(Process islem)
+        public IResult Delete(Process process)
         {
-            _islemDal.Delete(islem);
+            _processDal.Delete(process);
 
             return new SuccessResult(Messages.ProcessDeleted);
 
@@ -38,13 +38,13 @@ namespace Business.Concrete
 
         public IDataResult<List<Process>> GetAll()
         {
-            return new SuccessDataResult<List<Process>>(_islemDal.GetAll());
+            return new SuccessDataResult<List<Process>>(_processDal.GetAll());
         }
 
 
-        public IResult Update(Process islem)
+        public IResult Update(Process process)
         {
-            _islemDal.Update(islem);
+            _processDal.Update(process);
 
             return new SuccessResult(Messages.ProcessUpdated);
         }

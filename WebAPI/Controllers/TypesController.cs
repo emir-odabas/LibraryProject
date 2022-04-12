@@ -11,20 +11,19 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OgrencisController : ControllerBase
+    public class TypesController : ControllerBase
     {
-        IOgrenciService _ogrenciService;
+        ITypeService _typeService;
 
-        public OgrencisController(IOgrenciService ogrenciService)
+        public TypesController(ITypeService typeService)
         {
-            _ogrenciService = ogrenciService;
+            _typeService= typeService;
         }
 
         [HttpGet("getall")]
-
         public IActionResult GetAll()
         {
-            var result = _ogrenciService.GetAll();
+            var result = _typeService.GetAll();
 
             if (result.Success)
             {
@@ -34,10 +33,12 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+
         [HttpPost("add")]
-        public IActionResult Add(Student ogrenci)
+        public IActionResult Add(Entities.Concrete.Type type)
         {
-            var result = _ogrenciService.Add(ogrenci);
+            var result = _typeService.Add(type);
+
             if (result.Success)
             {
                 return Ok(result);
@@ -47,9 +48,10 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut("update")]
-        public IActionResult Update(Student ogrenci)
+        public IActionResult Update(Entities.Concrete.Type type)
         {
-            var result = _ogrenciService.Update(ogrenci);
+            var result = _typeService.Update(type);
+
             if (result.Success)
             {
                 return Ok(result);
@@ -59,17 +61,19 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Student ogrenci)
+        public IActionResult Delete(Entities.Concrete.Type type)
         {
-            var result = _ogrenciService.Delete(ogrenci);
+            var result = _typeService.Delete(type);
 
             if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest(result);
 
+            return BadRequest(result);
         }
+
+
 
 
     }

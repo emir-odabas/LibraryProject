@@ -10,6 +10,7 @@ namespace Entities.Concrete
 { 
     public class Type : IEntity
     {
+        [System.ComponentModel.DataAnnotations.Key]
         public int TurId { get; set; }
 
         public string Ad { get; set; }

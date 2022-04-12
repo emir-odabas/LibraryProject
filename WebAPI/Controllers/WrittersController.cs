@@ -1,42 +1,44 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using DataAccess.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.Concrete;
 using Entities.Concrete;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class IslemsController : ControllerBase
+    public class WrittersController : ControllerBase
     {
-        IIslemService _islemService;
+        IWriterService _writerService;
 
-
-        public IslemsController(IIslemService islemService)
+        public WrittersController(IWriterService writerService)
         {
-            _islemService = islemService;
+            _writerService= writerService;
         }
 
-        [HttpGet("Getall")]
+        [HttpGet("get")]
         public IActionResult GetAll()
         {
-            var result = _islemService.GetAll();
+            var result = _writerService.GetAll();
 
             if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest(result); ;
+
+            return BadRequest(result);
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Process islem)
+        public IActionResult Add(Writer writer)
         {
-            var result = _islemService.Add(islem);
+            var result = _writerService.Add(writer);
 
             if (result.Success)
             {
@@ -44,38 +46,38 @@ namespace WebAPI.Controllers
             }
 
             return BadRequest(result);
-
         }
-
 
         [HttpPut("update")]
-        public IActionResult Update(Process islem)
+        public IActionResult Update(Writer writer)
         {
-            var result = _islemService.Update(islem);
-
+            var result = _writerService.Update(writer);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(writer);
             }
 
             return BadRequest(result);
-
         }
-
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Process islem)
+        public IActionResult Delete(Writer writer)
         {
-            var result = _islemService.Delete(islem);
+            var result = _writerService.Update(writer);
 
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(writer);
             }
 
             return BadRequest(result);
-
         }
 
+
+
+
     }
+
+
+
 }

@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Utilities.Results;
 
 namespace Business.Abstract
 {
     public interface IUserService
     {
-        public interface IUserService
-        {
-            List<OperationClaim> GetClaims(User user);
+        List<OperationClaim> GetClaims(User user);
 
-            void Add(User user);
 
-            User GetByMail(string email);
-        }
+        void Add(User user);
+
+
+        User GetByMail(string email);
     }
 }

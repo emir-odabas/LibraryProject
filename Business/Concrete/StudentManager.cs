@@ -12,38 +12,38 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class OgrenciManager :IOgrenciService
+    public class StudentManager :IStudentService
     {
-        IOgrenciDal _ogrenciDal;
+        IStudentDal _studentDal;
 
       
 
-        public OgrenciManager(IOgrenciDal ogrenciDal)
+        public StudentManager(IStudentDal studentDal)
         {
-            _ogrenciDal = ogrenciDal;
+            _studentDal = studentDal;
         }
 
 
         public IDataResult<List<Student>> GetAll()
         {
-            return new SuccessDataResult<List<Student>>(_ogrenciDal.GetAll());
+            return new SuccessDataResult<List<Student>>(_studentDal.GetAll());
         }
 
-        public IResult Add(Student ogrenci)
+        public IResult Add(Student student)
         {
-            _ogrenciDal.Add(ogrenci);
+            _studentDal.Add(student);
             return new SuccessResult(Messages.StudentAdded);
         }
 
-        public IResult Update(Student ogrenci)
+        public IResult Update(Student student)
         {
-            _ogrenciDal.Update(ogrenci);
+            _studentDal.Update(student);
             return new SuccessResult(Messages.StudentUpdated);
         }
 
-        public IResult Delete(Student ogrenci)
+        public IResult Delete(Student student)
         {
-            _ogrenciDal.Delete(ogrenci);
+            _studentDal.Delete(student);
             return new SuccessResult(Messages.StudentDeleted);
         }
     }

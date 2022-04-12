@@ -13,11 +13,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
 using Business.Concrete;
+using Core.Utilities.Security.Encryption;
+using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using TokenOptions = Microsoft.AspNetCore.Identity.TokenOptions;
 
 namespace WebAPI
 {
@@ -38,29 +40,50 @@ namespace WebAPI
 
             services.AddControllers();
 
-            services.AddSingleton<IIslemService, IslemManager>();
-            services.AddSingleton<IIslemDal, EfIslemDal>();
+            services.AddSingleton<IProcessService, ProcessManager>();
+            services.AddSingleton<IProcessDal, EfProcessDal>();
 
-            services.AddSingleton<IOgrenciService, OgrenciManager>();
-            services.AddSingleton<IOgrenciDal, EfOgrenciDal>();
+            services.AddSingleton<IStudentService, StudentManager>();
+            services.AddSingleton<IStudentDal, EfStudentDal>();
 
-            services.AddSingleton<ITurService, TurManager>();
-            services.AddSingleton<ITurDal, EfTurDal>();
+            services.AddSingleton<ITypeService, TypeManager>();
+            services.AddSingleton<ITypeDal, EfTypeDal>();
 
-            services.AddSingleton<IKitapService, KitapManager>();
-            services.AddSingleton<IKitapDal, EfKitapDal>();
+            services.AddSingleton<IBookService, BookManager>();
+            services.AddSingleton<IBookDal, EfBookDal>();
 
-            services.AddSingleton<IYazarService, YazarManager>();
-            services.AddSingleton<IYazarDal, EfYazarDal>();
+            services.AddSingleton<IWriterService, WriterManager>();
+            services.AddSingleton<IWriterDal, EfWriterDal>();
+
+            services.AddSingleton<IAuthService, AuthManager>();
+            services.AddSingleton<ITokenHelper, JwtHelper>();
 
             services.AddSingleton<IUserService, UserManager>();
             services.AddSingleton<IUserDal, EfUserDal>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                    builder => builder.WithOrigins("http://localhost:3000"));
+            });
 
+            var tokenOptions = Configuration.GetSection("TokenOptionss").Get<TokenOptionss>();
 
-             Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme);
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidIssuer = tokenOptions.Issuer,
+                        ValidAudience = tokenOptions.Audience,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+                    };
+                });
+                    
 
             services.AddSwaggerGen(c =>
             {
@@ -77,6 +100,8 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
+
+            app.UseCors(builder => builder.WithOrigins("http://localhost:3000"));
 
             app.UseHttpsRedirection();
 

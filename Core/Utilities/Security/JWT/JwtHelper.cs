@@ -20,12 +20,12 @@ namespace Core.Utilities.Security.JWT
        
 
         public IConfiguration Configuration { get; } 
-        private TokenOptions _tokenOptions;
+        private TokenOptionss _tokenOptions;
         private DateTime _accessTokenExpiration;
         public JwtHelper(IConfiguration configuration)
         {
             Configuration = configuration;
-            _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            _tokenOptions = Configuration.GetSection("TokenOptionss").Get<TokenOptionss>();
         //Appsettings.json daki değerleri teker teker  "TokenOptions" daki değerlere atıyor
         }
         public AccessToken CreateToken(User user, List<OperationClaim> operationClaims)  //CreateToken metotunu implemente ediyoruz.
@@ -46,7 +46,7 @@ namespace Core.Utilities.Security.JWT
 
         }
 
-        public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, User user,
+        public JwtSecurityToken CreateJwtSecurityToken(TokenOptionss tokenOptions, User user,
             SigningCredentials signingCredentials, List<OperationClaim> operationClaims)
         {
             var jwt = new JwtSecurityToken(

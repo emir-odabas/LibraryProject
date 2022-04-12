@@ -11,20 +11,20 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class KitapsController : ControllerBase
+    public class StudentsController : ControllerBase
     {
-        private IKitapService _kitapService;
+        IStudentService _studentService;
 
-        public KitapsController(IKitapService kitapService)
+        public StudentsController(IStudentService studentService)
         {
-            _kitapService = kitapService;
+            _studentService= studentService;
         }
 
         [HttpGet("getall")]
 
         public IActionResult GetAll()
         {
-            var result = _kitapService.GetAll();
+            var result = _studentService.GetAll();
 
             if (result.Success)
             {
@@ -35,11 +35,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-
-        public IActionResult Add(Book kitap)
+        public IActionResult Add(Student student)
         {
-            var result = _kitapService.Add(kitap);
-
+            var result = _studentService.Add(student);
             if (result.Success)
             {
                 return Ok(result);
@@ -49,11 +47,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut("update")]
-
-        public IActionResult Update(Book kitap)
+        public IActionResult Update(Student student)
         {
-            var result = _kitapService.Update(kitap);
-
+            var result = _studentService.Update(student);
             if (result.Success)
             {
                 return Ok(result);
@@ -61,21 +57,20 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
-
 
         [HttpDelete("delete")]
-
-        public IActionResult Delete(Book kitap)
+        public IActionResult Delete(Student student)
         {
-            var result = _kitapService.Update(kitap);
+            var result = _studentService.Delete(student);
 
             if (result.Success)
             {
                 return Ok(result);
             }
-
             return BadRequest(result);
+
         }
+
 
     }
 }

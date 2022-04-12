@@ -8,14 +8,14 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    public interface IOgrenciService
+    public interface IProcessService
     {
-        IDataResult<List<Student>> GetAll();
+        IDataResult<List<Process>> GetAll();
 
-        IResult Add(Student ogrenci);
+        IResult Add(Process process);
 
-        IResult Update(Student ogrenci);
+        IResult Update(Process process);
 
-        IResult Delete(Student ogrenci);
+        IResult Delete(Process process);
     }
 }

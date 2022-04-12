@@ -8,14 +8,14 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    public interface IIslemService
+    public interface IBookService
     {
-        IDataResult<List<Process>> GetAll();
+        IDataResult<List<Book>> GetAll();
 
-        IResult Add(Process islem);
+        IResult Add(Book book);
 
-        IResult Update(Process islem);
+        IResult Update(Book book);
 
-        IResult Delete(Process islem);
+        IResult Delete(Book book);
     }
 }

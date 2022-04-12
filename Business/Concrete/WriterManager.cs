@@ -11,37 +11,37 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class YazarManager : IYazarService
+    public class WriterManager : IWriterService
     {
-        IYazarDal _yazarDal;
+        IWriterDal _writerDal;
 
-        public YazarManager(IYazarDal yazarDal)
+        public WriterManager(IWriterDal writerDal)
         {
-            _yazarDal = yazarDal;
+            _writerDal = writerDal;
         }
 
         public IDataResult<List<Writer>> GetAll()
         {
-            return new SuccessDataResult<List<Writer>>(_yazarDal.GetAll());
+            return new SuccessDataResult<List<Writer>>(_writerDal.GetAll());
         }
 
-        public IResult Add(Writer yazar)
+        public IResult Add(Writer writer)
         {
-            _yazarDal.Add(yazar);
+            _writerDal.Add(writer);
 
             return new SuccessResult(Messages.AuthorAdded);
         }
 
-        public IResult Update(Writer yazar)
+        public IResult Update(Writer writer)
         {
-            _yazarDal.Update(yazar);
+            _writerDal.Update(writer);
 
             return new SuccessResult(Messages.AuthorUpdated);
         }
 
-        public IResult Delete(Writer yazar)
+        public IResult Delete(Writer writer)
         {
-            _yazarDal.Delete(yazar);
+            _writerDal.Delete(writer);
 
             return new SuccessResult(Messages.AuthorDeleted);
         }

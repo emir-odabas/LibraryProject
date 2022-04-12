@@ -1,31 +1,30 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using DataAccess.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
-using Business.Concrete;
 using Entities.Concrete;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class YazarsController : ControllerBase
+    public class BooksController : ControllerBase
     {
-        IYazarService _yazarService;
+        private IBookService _bookService;
 
-        public YazarsController(IYazarService yazarService)
+        public BooksController(IBookService bookService)
         {
-            _yazarService = yazarService;
+            _bookService= bookService;
         }
 
-        [HttpGet("get")]
+        [HttpGet("getall")]
+
         public IActionResult GetAll()
         {
-            var result = _yazarService.GetAll();
+            var result = _bookService.GetAll();
 
             if (result.Success)
             {
@@ -36,9 +35,10 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Writer yazar)
+
+        public IActionResult Add(Book kitap)
         {
-            var result = _yazarService.Add(yazar);
+            var result = _bookService.Add(kitap);
 
             if (result.Success)
             {
@@ -49,35 +49,33 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut("update")]
-        public IActionResult Update(Writer yazar)
+
+        public IActionResult Update(Book kitap)
         {
-            var result = _yazarService.Update(yazar);
+            var result = _bookService.Update(kitap);
+
             if (result.Success)
             {
-                return Ok(yazar);
+                return Ok(result);
             }
 
             return BadRequest(result);
         }
+
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Writer yazar)
+
+        public IActionResult Delete(Book kitap)
         {
-            var result = _yazarService.Update(yazar);
+            var result = _bookService.Update(kitap);
 
             if (result.Success)
             {
-                return Ok(yazar);
+                return Ok(result);
             }
 
             return BadRequest(result);
         }
 
-
-
-
     }
-
-
-
 }

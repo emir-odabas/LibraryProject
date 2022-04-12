@@ -8,14 +8,14 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    public interface IKitapService
+    public interface IWriterService
     {
-        IDataResult<List<Book>> GetAll();
+        IDataResult<List<Writer>> GetAll();
 
-        IResult Add(Book kitap);
+        IResult Add(Writer writer);
 
-        IResult Update(Book kitap);
+        IResult Update(Writer writer);
 
-        IResult Delete(Book kitap);
+        IResult Delete(Writer writer);
     }
 }

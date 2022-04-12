@@ -8,14 +8,14 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    public interface IYazarService
+    public interface IStudentService
     {
-        IDataResult<List<Writer>> GetAll();
+        IDataResult<List<Student>> GetAll();
 
-        IResult Add(Writer yazar);
+        IResult Add(Student student);
 
-        IResult Update(Writer yazar);
+        IResult Update(Student student);
 
-        IResult Delete(Writer yazar);
+        IResult Delete(Student student);
     }
 }

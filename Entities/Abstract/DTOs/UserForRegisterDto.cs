@@ -8,7 +8,7 @@ using Core.Entities.Abstract;
 
 namespace Entities.Abstract.DTOs
 {
-    public class UserForRegisterDto :IDto
+    public class  UserForRegisterDto :IDto
     {
         public string Email { get; set; }
 

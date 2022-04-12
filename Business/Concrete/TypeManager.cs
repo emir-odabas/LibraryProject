@@ -11,36 +11,36 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class TurManager : ITurService
+    public class TypeManager : ITypeService
     {
-        private ITurDal _turDal;
+        private ITypeDal _typeDal;
 
-        public TurManager(ITurDal turDal)
+        public TypeManager(ITypeDal typeDal)
         {
-            _turDal = turDal;
+            _typeDal = typeDal;
         }
 
         public IDataResult<List<Entities.Concrete.Type>> GetAll()
         {
-            return new SuccessDataResult<List<Entities.Concrete.Type>>(_turDal.GetAll());
+            return new SuccessDataResult<List<Entities.Concrete.Type>>(_typeDal.GetAll());
         }
 
-        public IResult Add(Entities.Concrete.Type tur)
+        public IResult Add(Entities.Concrete.Type type)
         {
-            _turDal.Add(tur);
+            _typeDal.Add(type);
             return new SuccessResult(Messages.TypeAdded);
         }
 
-        public IResult Update(Entities.Concrete.Type tur)
+        public IResult Update(Entities.Concrete.Type type)
         {
-            _turDal.Update(tur);
+            _typeDal.Update(type);
 
             return new SuccessResult(Messages.TypeUpdated);
         }
 
-        public IResult Delete(Entities.Concrete.Type tur)
+        public IResult Delete(Entities.Concrete.Type type)
         {
-            _turDal.Delete(tur);
+            _typeDal.Delete(type);
 
             return new SuccessResult(Messages.TypeDeleted);
         }

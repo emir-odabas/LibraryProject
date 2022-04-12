@@ -1,18 +1,16 @@
 ﻿using Core.DataAccess.EntityFramework;
-using DataAccess.Abstract;
-using Entities.Concrete;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess.Abstract;
+using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfIslemDal :EfEntityRepositoryBase<Process,LibraryContext>,IIslemDal
+    public class EfTypeDal : EfEntityRepositoryBase<Entities.Concrete.Type, LibraryContext>, ITypeDal
     {
-        
+
     }
 }

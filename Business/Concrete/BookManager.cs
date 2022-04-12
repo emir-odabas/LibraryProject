@@ -11,38 +11,38 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class KitapManager :IKitapService
+    public class BookManager :IBookService
     {
-         IKitapDal _kitapDal;
+         IBookDal _bookDal;
 
-        public KitapManager(IKitapDal kitapDal)
+        public BookManager(IBookDal bookDal)
         {
-            _kitapDal = kitapDal;
+            _bookDal= bookDal;
         }
 
         
         public IDataResult<List<Book>> GetAll()
         {
-            return new SuccessDataResult<List<Book>>(_kitapDal.GetAll());
+            return new SuccessDataResult<List<Book>>(_bookDal.GetAll());
         }
 
-        public IResult Add(Book kitap)
+        public IResult Add(Book book)
         {
-            _kitapDal.Add(kitap);
+            _bookDal.Add(book);
 
             return new SuccessResult(Messages.BookAdded);
         }
 
-        public IResult Update(Book kitap)
+        public IResult Update(Book book)
         {
-            _kitapDal.Update(kitap);
+            _bookDal.Update(book);
 
             return new SuccessResult(Messages.BookUpdated);
         }
 
-        public IResult Delete(Book kitap)
+        public IResult Delete(Book book)
         {
-            _kitapDal.Delete(kitap);
+            _bookDal.Delete(book);
 
             return new SuccessResult(Messages.BookDeleted);
         }

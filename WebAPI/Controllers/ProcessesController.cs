@@ -11,33 +11,32 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TursController : ControllerBase
+    public class ProcessesController : ControllerBase
     {
-        ITurService _turService;
+        IProcessService _processService;
 
-        public TursController(ITurService turService)
+
+        public ProcessesController(IProcessService processService)
         {
-            _turService = turService;
+            _processService= processService;
         }
 
-        [HttpGet("getall")]
+        [HttpGet("Getall")]
         public IActionResult GetAll()
         {
-            var result = _turService.GetAll();
+            var result = _processService.GetAll();
 
             if (result.Success)
             {
                 return Ok(result);
             }
-
-            return BadRequest(result);
+            return BadRequest(result); ;
         }
-
 
         [HttpPost("add")]
-        public IActionResult Add(Entities.Concrete.Type tur)
+        public IActionResult Add(Process process)
         {
-            var result = _turService.Add(tur);
+            var result = _processService.Add(process);
 
             if (result.Success)
             {
@@ -45,12 +44,14 @@ namespace WebAPI.Controllers
             }
 
             return BadRequest(result);
+
         }
+
 
         [HttpPut("update")]
-        public IActionResult Update(Entities.Concrete.Type tur)
+        public IActionResult Update(Process process)
         {
-            var result = _turService.Update(tur);
+            var result = _processService.Update(process);
 
             if (result.Success)
             {
@@ -58,12 +59,14 @@ namespace WebAPI.Controllers
             }
 
             return BadRequest(result);
+
         }
+
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Entities.Concrete.Type tur)
+        public IActionResult Delete(Process process)
         {
-            var result = _turService.Delete(tur);
+            var result = _processService.Delete(process);
 
             if (result.Success)
             {
@@ -71,10 +74,8 @@ namespace WebAPI.Controllers
             }
 
             return BadRequest(result);
+
         }
-
-
-
 
     }
 }
