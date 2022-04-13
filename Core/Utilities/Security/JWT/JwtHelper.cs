@@ -28,15 +28,15 @@ namespace Core.Utilities.Security.JWT
             _tokenOptions = Configuration.GetSection("TokenOptionss").Get<TokenOptionss>();
         //Appsettings.json daki değerleri teker teker  "TokenOptions" daki değerlere atıyor
         }
-        public AccessToken CreateToken(User user, List<OperationClaim> operationClaims)  //CreateToken metotunu implemente ediyoruz.
+        public AccessToken CreateToken(User user, List<OperationClaim> operationClaims)  //CreateToken metotunu implemente ettim
         {
             //Tokenin süresi ne zaman bitecek ve kaç dakika eklenecek
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration); 
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
             var signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);//Hangi algoritmayı kullanacağımızı belirtiyor
             var jwt = CreateJwtSecurityToken(_tokenOptions, user, signingCredentials, operationClaims);//Bir tane JWT oluşturuyor
-            var jwtSecurityTokenHandler = new JwtSecurityTokenHandler(); //Oluşturulan jwt yi elde ediyoruz
-            var token = jwtSecurityTokenHandler.WriteToken(jwt); //Ve yazdırıyoruz
+            var jwtSecurityTokenHandler = new JwtSecurityTokenHandler(); //Oluşturulan jwt yi elde ettim
+            var token = jwtSecurityTokenHandler.WriteToken(jwt); //Ve yazdırdım
 
             return new AccessToken
             {
@@ -60,7 +60,7 @@ namespace Core.Utilities.Security.JWT
             return jwt;
         }
 
-        private IEnumerable<Claim> SetClaims(User user, List<OperationClaim> operationClaims)  //Burada Claim listesi oluşturuyoruz
+        private IEnumerable<Claim> SetClaims(User user, List<OperationClaim> operationClaims)  //Burada Claim listesi oluşturdum
         {
             var claims = new List<Claim>();
             claims.AddNameIdentifier(user.Id.ToString());

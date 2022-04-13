@@ -16,7 +16,7 @@ namespace DataAccess.Concrete.EntityFramework
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Library;Trusted_Connection=true");
         }
 
-        public DbSet<Process> Processes{ get; set; }
+        public DbSet<Process> Proceses{ get; set; }
 
         public DbSet<Book> Books { get; set; }
 
