@@ -8,21 +8,17 @@ using System.Threading.Tasks;
 namespace Core.Utilities.Security.Hashing
 {
     
-    //Parola hashlememize yardımcı olucak bu classı oluşturduk
     public class HashingHelper
-    {//Out kullanmamın sebebi veri boş bile gelse doldurup verebiliyor
-        //Verdiğimiz passwordun salt ve hash ini oluşturduk.
+    {
         public static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512())
             {
-                passwordSalt = hmac.Key; //Algormatnın Keyi & Her kullanıcı için yenisi üretilir
-                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));//String byte[] değerini almak için burayı oluşturuyoruz
+                passwordSalt = hmac.Key; 
+                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             }
 
         }
-
-        //Yukarıdaki fonksiyonda bir key üretilecek ve alt tarafta  bu keyleri karşılaştıracağız.
         public static bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
@@ -37,7 +33,7 @@ namespace Core.Utilities.Security.Hashing
                 }
             }
 
-            return true; //İki değer birbiri ile eşleşirse true döndürür
+            return true; 
         }
     }
 }
