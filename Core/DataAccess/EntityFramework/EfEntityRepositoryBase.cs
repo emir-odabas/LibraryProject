@@ -45,22 +45,21 @@ namespace Core.DataAccess.EntityFramework
             }
         }
 
-        public TEntity Get(Expression<Func<TEntity, bool>> filter)  // bu tek data getırcek
+        public TEntity Get(Expression<Func<TEntity, bool>> filter)  
         {
             using (TContext context = new TContext())
             {
-                return context.Set<TEntity>().SingleOrDefault(filter);//Tek bir sonucun döneceği kesin ise ve de sonuc donmeyebilir ise kullanılır.
+                return context.Set<TEntity>().SingleOrDefault(filter);
             }
         }
 
         public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
         {
             using (TContext context = new TContext())
-            {
-                // arka planda select * from product çalıştırıyor                
-                return filter == null //filtre null mu 
-                       ? context.Set<TEntity>().ToList() //evet ise bu çalışır
-                       : context.Set<TEntity>().Where(filter).ToList(); //değilse filtre ver
+            {         
+                return filter == null 
+                       ? context.Set<TEntity>().ToList() 
+                       : context.Set<TEntity>().Where(filter).ToList(); 
             }
         }
 
