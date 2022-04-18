@@ -8,9 +8,9 @@ using FluentValidation;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class OgrenciValidator :AbstractValidator<Student>
+    public class StudentValidator :AbstractValidator<Student>
     {
-        public OgrenciValidator()
+        public StudentValidator()
         {
             RuleFor(o => o.Ad ).NotEmpty();
             RuleFor(o => o.Soyad).NotEmpty();

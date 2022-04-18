@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Core.Utilities.Security.Hashing
-{//Parola hashlememize yardımcı olucak bu classı oluşturduk
+{
+    
+    //Parola hashlememize yardımcı olucak bu classı oluşturduk
     public class HashingHelper
     {//Out kullanmamın sebebi veri boş bile gelse doldurup verebiliyor
         //Verdiğimiz passwordun salt ve hash ini oluşturduk.
