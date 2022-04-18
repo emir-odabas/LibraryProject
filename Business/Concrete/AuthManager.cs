@@ -27,7 +27,7 @@ namespace Business.Concrete
 
         }
 
-        public IDataResult<AccessToken> CreateAccessToken(User user)    //Kullanıcıya özel erişim belirteci oluşturuluyor.
+        public IDataResult<AccessToken> CreateAccessToken(User user)    
         { 
             var claims = _userService.GetClaims(user);  
             var accessToken = _tokenHelper.CreateToken(user, claims);
@@ -36,7 +36,7 @@ namespace Business.Concrete
 
         }
 
-        public IDataResult<User> Login(UserForLoginDto userForLoginDto)          //Kullanıcının giriş bilgilerinie göre giriş yapılıp yapılmayacağı sorgulanıyor
+        public IDataResult<User> Login(UserForLoginDto userForLoginDto)          
         {
             var userToCheck = _userService.GetByMail(userForLoginDto.Email);
             if (userToCheck == null)
@@ -52,7 +52,7 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(userToCheck, Messages.SuccessfulLogin);
         }
 
-        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)    //Kullanıcının verileri ile sisteme kullanıcı ekleniyor
+        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)    
         {
 
             byte[] passwordHash, passwordSalt;
@@ -73,7 +73,7 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(user, Messages.UserRegistered);
         }
 
-        public IResult UserExists(string email)         //Aynı bilgilere sahip kullanıcı varmı yokmu kontrol ediliyor
+        public IResult UserExists(string email)        
         {
             if (_userService.GetByMail(email) != null)
             {
