@@ -1,4 +1,4 @@
-﻿using Entities.Concrete;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,12 +11,17 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class LibraryContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public LibraryContext()
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Library;Trusted_Connection=true");
+            Database.EnsureCreated();
         }
 
-        public DbSet<Process> Proceses{ get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseNpgsql(@"Host=localhost;Database=postgres;Username=postgres;Password=postgres");
+        }
+
+        public DbSet<Entities.Concrete.Process> Proceses{ get; set; }
 
         public DbSet<Book> Books { get; set; }
 

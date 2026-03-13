@@ -13,7 +13,19 @@ namespace WebAPI
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            try
+            {
+                CreateHostBuilder(args).Build().Run();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("STARTUP ERROR: " + ex.ToString());
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("INNER ERROR: " + ex.InnerException.ToString());
+                }
+                throw;
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -19,7 +19,6 @@ using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using TokenOptions = Microsoft.AspNetCore.Identity.TokenOptions;
 
 namespace WebAPI
 {
@@ -67,7 +66,12 @@ namespace WebAPI
                     builder => builder.WithOrigins("http://localhost:3000"));
             });
 
-            var tokenOptions = Configuration.GetSection("TokenOptionss").Get<TokenOptionss>();
+            var tokenOptions = Configuration.GetSection("TokenOptionss").Get<TokenOptionss>() ?? new TokenOptionss 
+            { 
+                Issuer = "default", 
+                Audience = "default", 
+                SecurityKey = "default_security_key_at_least_16_chars_long" 
+            };
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -94,7 +98,7 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            // if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();

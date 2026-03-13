@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Process process)
+        public IActionResult Add(Entities.Concrete.Process process)
         {
             var result = _processService.Add(process);
 
@@ -49,7 +49,7 @@ namespace WebAPI.Controllers
 
 
         [HttpPut("update")]
-        public IActionResult Update(Process process)
+        public IActionResult Update(Entities.Concrete.Process process)
         {
             var result = _processService.Update(process);
 
@@ -64,7 +64,7 @@ namespace WebAPI.Controllers
 
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Process process)
+        public IActionResult Delete(Entities.Concrete.Process process)
         {
             var result = _processService.Delete(process);
 
